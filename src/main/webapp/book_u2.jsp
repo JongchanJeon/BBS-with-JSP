@@ -10,8 +10,11 @@
 <h1>서적관리시스템 - 자료수정(U2)</h1>
 <hr>
 <h2>book_id 값은 DB에서 결정(auto increment)</h2>
+<%
+		String parameter = request.getParameter("param");
+%>
 <form method="post" action="./book_dao.jsp">
-	<br>서적번호(수정불가) : <input type="text" name = "title" size = "30">
+	<br>서적번호(수정불가) : <input type="text" name = "parameter" size = "30" value = <%=parameter %>>
 	<br>서적명 : <input type="text" name = "title" size ="30">
 	<br>출판사 : <input type="text" name = "publisher" size ="30">
 	<br>출판년도 : <input type="text" name = "year" size ="30">
