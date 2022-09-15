@@ -34,7 +34,7 @@
 	String sql;
 	int result;
 	String msg = "실행결과 : ";
-	
+	String parameter = request.getParameter("param");
 	switch(actionType) {
 	case "C":
 		title = request.getParameter("title");
@@ -65,7 +65,7 @@
 		price = Integer.parseInt(request.getParameter("price"));
 		
 		sql = "update books set title=" + title + ", publisher=" + publisher + ",year=" + year + ",price=" + price ;
-		sql += "where book_id =8";
+		sql += "where book_id =" + parameter;
 		System.out.println(sql);
 		
 		result = stmt.executeUpdate(sql);
