@@ -60,7 +60,7 @@
 				<td><%=publisher %></td>
 				<td><%=year %></td>
 				<td><%=price %></td>
-				<td><a href="./book_dao.jsp?actionType=D" >삭제</a></td>
+				<td><a href="./book_dao.jsp?actionType=D&book_id=<%=book_id%>">삭제</a></td>
 			</tr>
 <%
 		}
