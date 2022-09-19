@@ -35,6 +35,7 @@
 	int result;
 	String msg = "실행결과 : ";
 	String parameter = request.getParameter("param");
+	System.out.println(actionType);
 	switch(actionType) {
 	case "C":
 		title = request.getParameter("title");
@@ -81,6 +82,23 @@
 		}
 		break;
 		
+	case "D":
+		book_id = Integer.parseInt(request.getParameter("book_id"));
+		sql = "delete from books ";
+		sql += "where book_id =" + book_id;
+		System.out.println(sql);
+		
+		result = stmt.executeUpdate(sql);
+		
+		if(result == 1){
+			System.out.println("레코드 추가 성공");
+			msg += "레코드 추가 성공";
+		}
+		else {
+			System.out.println("레코드 추가 실패");
+			msg += "레코드 추가 실패";
+		}
+		break;
 	}
 
 
