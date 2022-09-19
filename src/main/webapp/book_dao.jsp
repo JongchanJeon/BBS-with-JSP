@@ -91,12 +91,12 @@
 		result = stmt.executeUpdate(sql);
 		
 		if(result == 1){
-			System.out.println("레코드 추가 성공");
-			msg += "레코드 추가 성공";
+			System.out.println("레코드 삭제 성공");
+			msg += "레코드 삭제 성공";
 		}
 		else {
-			System.out.println("레코드 추가 실패");
-			msg += "레코드 추가 실패";
+			System.out.println("레코드 삭제 실패");
+			msg += "레코드 삭제 실패";
 		}
 		break;
 	}
