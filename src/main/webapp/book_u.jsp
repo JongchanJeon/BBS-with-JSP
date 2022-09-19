@@ -60,7 +60,7 @@
 				<td><%=publisher %></td>
 				<td><%=year %></td>
 				<td><%=price %></td>
-				<td><a href="./book_u2.jsp?param=<%=book_id %>>">수정</a></td>
+				<td><a href="./book_u2.jsp?param=<%=book_id %>">수정</a></td>
 			</tr>
 <%
 		}

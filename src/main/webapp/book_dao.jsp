@@ -59,13 +59,14 @@
 		break;
 		
 	case "U":
+		book_id = Integer.parseInt(request.getParameter("param"));
 		title = request.getParameter("title");
 		publisher = request.getParameter("publisher");
 		year = request.getParameter("year");
 		price = Integer.parseInt(request.getParameter("price"));
 		
-		sql = "update books set title=" + title + ", publisher=" + publisher + ",year=" + year + ",price=" + price ;
-		sql += "where book_id =" + parameter;
+		sql = "update books set title='" + title + "', publisher='" + publisher + "',year='" + year + "',price='" + price +"'" ;
+		sql += "where book_id =" + book_id;
 		System.out.println(sql);
 		
 		result = stmt.executeUpdate(sql);
