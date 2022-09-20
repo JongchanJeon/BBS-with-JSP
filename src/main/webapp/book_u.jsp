@@ -8,7 +8,7 @@
 <title>Insert title here</title>
 </head>
 <body>
-<h1>서적관리시스템 - 수정(C)</h1>
+<h1>서적관리시스템 - 수정(U)</h1>
 <hr>
 <h2>전체보기(부분조회, 페이징기능 미포함)</h2>
 
