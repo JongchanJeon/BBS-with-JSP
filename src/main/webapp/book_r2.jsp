@@ -48,7 +48,7 @@
 	int startRecord = 0;
 	int limitCnt = 10;
 	int currentPageNo;
-	System.out.println(request.getParameter("currentPageNo"));
+
 	currentPageNo = Integer.parseInt(request.getParameter("currentPageNo"));
 	String sql = "select * from books order by book_id limit ";
 	sql += startRecord + "," + limitCnt;
