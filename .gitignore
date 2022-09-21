@@ -27,3 +27,5 @@
 *.setup
 .metadata/.plugins/org.eclipse.ui.intro/introstate
 *.ini
+.classpath
+.classpath

@@ -41,7 +41,11 @@
 	
 %>
 <form method="post" action="./book_dao.jsp">
+<<<<<<< HEAD
 	<br>서적번호(수정불가) : <input type="text" name = "param" size = "30" value = <%=request.getParameter("param") %> readonly/>
+=======
+	<br>서적번호(수정불가) : <input type="text" name = "param" size = "30" value = <%=request.getParameter("param") %>readonly/>
+>>>>>>> 862e2f51c4ea521042a19acaa0adb9cd03840a33
 	<br>서적명 : <input type="text" name = "title" size ="30" value = <%="'" + title + "'" %>>
 	<br>출판사 : <input type="text" name = "publisher" size ="30" value = <%=publisher %>>
 	<br>출판년도 : <input type="text" name = "year" size ="30" value = <%=year %>>

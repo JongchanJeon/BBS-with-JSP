@@ -13,7 +13,11 @@
 			<attribute name="owner.project.facets" value="jst.web"/>
 		</attributes>
 	</classpathentry>
+<<<<<<< HEAD
 	<classpathentry kind="lib" path="D:/Dev/MyWorkspace/mariadb-java-client-3.0.7.jar">
+=======
+	<classpathentry kind="lib" path="C:/Users/jjc63/Desktop/CRUD-with-JSP/mariadb-java-client-3.0.7.jar">
+>>>>>>> 862e2f51c4ea521042a19acaa0adb9cd03840a33
 		<attributes>
 			<attribute name="org.eclipse.jst.component.dependency" value="/WEB-INF/lib"/>
 		</attributes>
