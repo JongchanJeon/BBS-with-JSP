@@ -8,13 +8,9 @@
 <title>Insert title here</title>
 </head>
 <body>
-<h1>서적관리 시스템 - 조회(R3)</h1>
+<h1>서적관리 시스템 - 조회(R2)</h1>
 <hr>
-<h2>전체보기(부분조회 미포함, 페이징기능 개선, 출력 레코드 갯수 선택, 세션객체 사용안함)</h2>
-<hr>
-<h2>현재 DISPLAY RECORDS NUMBER : 10</h2>
-<hr>
-<p>디스플레이 레코드 수 변경: <input </p>
+<h2>전체보기(부분조회 미포함, 페이징기능 포함)</h2>
 <%
 	String driverName = "org.mariadb.jdbc.Driver";
 	String url = "jdbc:mariadb://localhost/book_db";

@@ -29,3 +29,6 @@
 *.ini
 .classpath
 .classpath
+*.prefs
+*.component
+*.xml
