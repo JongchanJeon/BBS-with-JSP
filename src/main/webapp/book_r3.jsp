@@ -8,9 +8,22 @@
 <title>Insert title here</title>
 </head>
 <body>
-<h1>서적관리 시스템 - 조회(R2)</h1>
+<h1>서적관리 시스템 - 조회(R3)</h1>
 <hr>
-<h2>전체보기(부분조회 미포함, 페이징기능 포함)</h2>
+<h2>전체보기(부분조회 미포함, 페이징기능 개선, 출력레코드갯수선택, 세션 객체 사용안함)</h2>
+<hr>
+<h2>현재 DISPLAY RECORDS NUMBER:</h2>
+<hr>
+<form method = "post" action= "./book_r3.jsp">
+<p>디스플레이 레코드수 변경 : 
+<select name = 'record' size = '1'>
+	<option value='10' selected>10</option>
+	<option value = '20'>20</option>
+	<option value = '50'>30</option>
+	<option value = '50'>50</option>
+	</select><input type = "submit" value ="확인"></p>
+	</form>
+	
 <%
 	String driverName = "org.mariadb.jdbc.Driver";
 	String url = "jdbc:mariadb://localhost/book_db";
