@@ -12,18 +12,6 @@
 <hr>
 <h2>전체보기(부분조회 미포함, 페이징기능 개선, 출력레코드갯수선택, 세션 객체 사용안함)</h2>
 <hr>
-<h2>현재 DISPLAY RECORDS NUMBER:</h2>
-<hr>
-<form method = "post" action= "./book_r3.jsp">
-<p>디스플레이 레코드수 변경 : 
-<select name = 'record' size = '1'>
-	<option value='10' selected>10</option>
-	<option value = '20'>20</option>
-	<option value = '50'>30</option>
-	<option value = '50'>50</option>
-	</select><input type = "submit" value ="확인"></p>
-	</form>
-	
 <%
 	String driverName = "org.mariadb.jdbc.Driver";
 	String url = "jdbc:mariadb://localhost/book_db";
@@ -36,6 +24,14 @@
 	request.setCharacterEncoding("utf-8");
 %>
 <%
+	String record = request.getParameter("record");
+	if (request.getParameter("record") == null) { 
+		record = "10";
+	}
+	System.out.println(record);
+	
+%>
+		<%
 	String sql2 = "select count(*) from books";
 	ResultSet rs2 = stmt.executeQuery(sql2);
 	
@@ -46,11 +42,10 @@
 		recordCnt = rs2.getInt(1);
 	}
 	
-	pageCnt = recordCnt / 10;
+	pageCnt = 10;
 	if (recordCnt%10 != 0)
 		pageCnt++;
 %>
-
 <%
 	int book_id;
 	String title;
@@ -59,14 +54,29 @@
 	int price;
 	
 	int startRecord = 0;
-	int limitCnt = 10;
+	int limitCnt = Integer.parseInt(record);
 	int currentPageNo;
 
 	currentPageNo = Integer.parseInt(request.getParameter("currentPageNo"));
+	startRecord = currentPageNo * limitCnt;
+	
 	String sql = "select * from books order by book_id limit ";
 	sql += startRecord + "," + limitCnt;
 	ResultSet rs = stmt.executeQuery(sql);
 %>
+
+<h2>현재 DISPLAY RECORDS NUMBER: <%=record %></h2>
+<hr>
+<form method = 'post' action ='book_r3.jsp?currentPageNo=<%=currentPageNo%>'>
+<p>디스플레이 레코드수 변경 : 
+	<select name = 'record' id = 'record' size = '1'>
+		<option value = '10'>10</option>
+		<option value = '20'>20</option>
+		<option value = '30'>30</option>
+	</select>
+	<input type = "submit" value ="확인"></p>
+</form>
+
 	<table border = "1">
 		<thead>
 			<tr>
@@ -78,6 +88,9 @@
 			</tr>
 		</thead>
 		<tbody>
+
+
+
 <%
 		while(rs.next()) {
 			book_id = rs.getInt("book_id");
@@ -96,14 +109,15 @@
 <%
 		}
 %>
+
 		</tbody>
 	</table>
 	<br>
-	<a href = "./book_r2.jsp?currentPageNo=0">[FIRST]</a>
+	<a href = "./book_r3.jsp?currentPageNo=0">[FIRST]</a>
 	<%
 		if(currentPageNo > 0) {
 	%>
-	<a href = "./book_r2.jsp?currentPageNo=<%=(currentPageNo-1)%>">[PRE]</a>
+	<a href = "./book_r3.jsp?currentPageNo=<%=(currentPageNo-1)%>&record=<%=record%>">[PRE]</a>
 	<%
 		}else{
 	%>
@@ -117,7 +131,7 @@
 	<%
 			}else{
 	%>
-		<a href="./book_r2.jsp?currentPageNo=<%=i%>">[<%=(i+1)%>]</a>
+		<a href="./book_r3.jsp?currentPageNo=<%=i%>&record=<%=record%>">[<%=(i+1)%>]</a>
 	<%
 			}
 		}
@@ -125,7 +139,7 @@
 	<%
 		if(currentPageNo < pageCnt - 1){
 	%>
-		<a href=".book_r2.jsp?currentPageNo=<%=(currentPageNo+1) %>">[NXT]</a>
+		<a href="./book_r3.jsp?currentPageNo=<%=(currentPageNo+1) %>&record=<%=record%>">[NXT]</a>
 	<%
 		}else{
 	%>
@@ -133,7 +147,7 @@
 	<%
 		}
 	%>
-	<a href="./book_r2.jsp?currentPageNo=<%=(pageCnt-1)%>">[END]</a>
+	<a href="./book_r3.jsp?currentPageNo=<%=(pageCnt-1)%>&record=<%=record%>">[END]</a>
 	<br><br>
 	<a href="./index.jsp">홈으로 돌아가기</a>
 </body>

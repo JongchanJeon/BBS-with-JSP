@@ -1,4 +1,4 @@
-<%@ page language="java" contentType="text/html; charset=EUC-KR"
+<%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ page import = "java.sql.*" %>
 <!DOCTYPE html>
@@ -50,6 +50,8 @@
 	int currentPageNo;
 
 	currentPageNo = Integer.parseInt(request.getParameter("currentPageNo"));
+	startRecord = currentPageNo * 10;
+	
 	String sql = "select * from books order by book_id limit ";
 	sql += startRecord + "," + limitCnt;
 	ResultSet rs = stmt.executeQuery(sql);
@@ -112,7 +114,7 @@
 	<%
 		if(currentPageNo < pageCnt - 1){
 	%>
-		<a href=".book_r2.jsp?currentPageNo=<%=(currentPageNo+1) %>">[NXT]</a>
+		<a href="./book_r2.jsp?currentPageNo=<%=(currentPageNo+1) %>">[NXT]</a>
 	<%
 		}else{
 	%>
