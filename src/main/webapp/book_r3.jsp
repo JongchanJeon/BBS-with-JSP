@@ -28,24 +28,10 @@
 	if (request.getParameter("record") == null) { 
 		record = "10";
 	}
-	System.out.println(record);
+
 	
 %>
-		<%
-	String sql2 = "select count(*) from books";
-	ResultSet rs2 = stmt.executeQuery(sql2);
-	
-	int recordCnt = 0;
-	int pageCnt;
-	
-	while(rs2.next()) {
-		recordCnt = rs2.getInt(1);
-	}
-	
-	pageCnt = 10;
-	if (recordCnt%10 != 0)
-		pageCnt++;
-%>
+
 <%
 	int book_id;
 	String title;
@@ -64,10 +50,24 @@
 	sql += startRecord + "," + limitCnt;
 	ResultSet rs = stmt.executeQuery(sql);
 %>
-
+		<%
+	String sql2 = "select count(*) from books";
+	ResultSet rs2 = stmt.executeQuery(sql2);
+	
+	int recordCnt = 0;
+	int pageCnt;
+	
+	while(rs2.next()) {
+		recordCnt = rs2.getInt(1);
+	}
+	
+	pageCnt = recordCnt / limitCnt;
+	if (recordCnt%10 != 0)
+		pageCnt++;
+%>
 <h2>현재 DISPLAY RECORDS NUMBER: <%=record %></h2>
 <hr>
-<form method = 'post' action ='book_r3.jsp?currentPageNo=<%=currentPageNo%>'>
+<form method = 'post' action ='book_r3.jsp?currentPageNo=<%=0%>'>
 <p>디스플레이 레코드수 변경 : 
 	<select name = 'record' id = 'record' size = '1'>
 		<option value = '10'>10</option>
@@ -115,6 +115,7 @@
 	<br>
 	<a href = "./book_r3.jsp?currentPageNo=0">[FIRST]</a>
 	<%
+		
 		if(currentPageNo > 0) {
 	%>
 	<a href = "./book_r3.jsp?currentPageNo=<%=(currentPageNo-1)%>&record=<%=record%>">[PRE]</a>
@@ -124,29 +125,49 @@
 		[PRE]
 	<%
 		}
-		for(int i = 0 ;i < pageCnt; i++){
+		if (pageCnt / 10 == currentPageNo /10){
+		for(int i = ((currentPageNo / 10) * 10) ;i < ((currentPageNo / 10) * 10) + pageCnt % 10; i++){
+
 			if(i == currentPageNo) {
 	%>
 			[<%=(i+1) %>]
 	<%
 			}else{
+				
 	%>
 		<a href="./book_r3.jsp?currentPageNo=<%=i%>&record=<%=record%>">[<%=(i+1)%>]</a>
 	<%
 			}
 		}
+		}else {
+			for(int i = ((currentPageNo / 10) * 10) ;i < ((currentPageNo / 10) * 10) + 10; i++){
+
+				if(i == currentPageNo) {
+		%>
+				[<%=(i+1) %>]
+		<%
+				}else{
+					
+		%>
+			<a href="./book_r3.jsp?currentPageNo=<%=i%>&record=<%=record%>">[<%=(i+1)%>]</a>
+		<%
+				}
+			}
+		}
 	%>
 	<%
 		if(currentPageNo < pageCnt - 1){
-	%>
-		<a href="./book_r3.jsp?currentPageNo=<%=(currentPageNo+1) %>&record=<%=record%>">[NXT]</a>
+
+			%>
+			<a href="./book_r3.jsp?currentPageNo=<%=(currentPageNo+1) %>&record=<%=record%>">[NXT]</a>
 	<%
-		}else{
+		}else {
 	%>
 		[NXT]
-	<%
+		<%
 		}
 	%>
+
 	<a href="./book_r3.jsp?currentPageNo=<%=(pageCnt-1)%>&record=<%=record%>">[END]</a>
 	<br><br>
 	<a href="./index.jsp">홈으로 돌아가기</a>
