@@ -72,7 +72,8 @@
 	<select name = 'record' id = 'record' size = '1'>
 		<option value = '10'>10</option>
 		<option value = '20'>20</option>
-		<option value = '30'>30</option>
+		<option value = '50'>50</option>
+		<option value = '100'>100</option>
 	</select>
 	<input type = "submit" value ="확인"></p>
 </form>
@@ -125,8 +126,13 @@
 		[PRE]
 	<%
 		}
+		int addPage = 0;
+		if (recordCnt % limitCnt > 0){
+			addPage += 1;
+		}
+		
 		if (pageCnt / 10 == currentPageNo /10){
-		for(int i = ((currentPageNo / 10) * 10) ;i < ((currentPageNo / 10) * 10) + pageCnt % 10; i++){
+		for(int i = ((currentPageNo / 10) * 10) ;i < ((currentPageNo / 10) * 10) + pageCnt % 10 + addPage ; i++){
 
 			if(i == currentPageNo) {
 	%>
