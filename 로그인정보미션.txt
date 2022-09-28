@@ -1,0 +1,6 @@
+로그인 정보 추가 
+-> 첫 main 화면 로그인 창 (id, password, sign up, sign in)
+ -> sign up 화면은 (userName, userId, userPassword, userEmail, userPhone, userSSN)으로 구성
+ -> 회원가입 완료되면 다시 main.jsp로 가서 로그인을 할 수 있게 함
+ -> 로그인을 성공하면 index.jsp
+ -> 로그인일 실패하면 alert과 함께 다시 main.jsp 

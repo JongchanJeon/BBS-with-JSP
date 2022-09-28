@@ -1,0 +1,14 @@
+drop database user;
+create database user;
+use user;
+
+create table users (
+userNum INT NOT NULL PRIMARY KEY auto_increment,
+userName varchar(10) NOT NULL,
+userId varchar(20) NOT NULL UNIQUE,
+userPassword varchar(20)NOT NULL,
+userEmail varchar(50)NOT NULL UNIQUE,
+userPhone varchar(11),
+userSSN varchar(13)NOT NULL UNIQUE
+);
+
