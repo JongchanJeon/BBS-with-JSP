@@ -1,22 +1,22 @@
-<%@ page language="java" contentType="text/html; charset=EUC-KR"
-    pageEncoding="EUC-KR"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="EUC-KR">
+<meta charset="UTF-8">
 <title>Insert title here</title>
 </head>
 <body>
-<h1>¼­Àû°ü¸® ½Ã½ºÅÛ Ver0.1 LOGIN IN</h1>
+<h1>ì„œì ê´€ë¦¬ ì‹œìŠ¤í…œ Ver0.1 LOGIN IN</h1>
 <hr><br>
-<h3>·Î±×ÀÎ ½Ã½ºÅÛ</h3>
+<h3>ë¡œê·¸ì¸ ì‹œìŠ¤í…œ</h3>
 <br>
 <form>
 <div>Id &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<input type = "text" id = "id"></div><br>
-<div>Password <input type = "password" id = "password"></div>
-<button type ="button" onclick ="alert('·Î±×ÀÎ¿¡ ½ÇÆĞÇÏ¿´½À´Ï´Ù!')"> LOGIN</button>
+<div>Password <input type = "password" id = "password"></div><br>
+<button type ="button" onclick ="location.href='index.jsp'"> LOGIN</button>
+<button type = "button" onclick = "location.href='signup.jsp'"> íšŒì›ê°€ì…</button>
 </form>
-<br><br><br>
-<button type = "button" onclick = "./book_u.jsp"> È¸¿ø°¡ÀÔ</button>
+
 </body>
 </html>
