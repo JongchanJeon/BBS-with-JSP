@@ -41,7 +41,6 @@
 		
 %>
 <form method="post" action="./book_dao.jsp">
-
 	<br>서적번호(수정불가) : <input type="text" name = "param" size = "30" value = <%=request.getParameter("param") %> readonly/>
 	<br>서적명 : <input type="text" name = "title" size ="30" value = <%="'" + title + "'" %>>
 	<br>출판사 : <input type="text" name = "publisher" size ="30" value = <%=publisher %>>
