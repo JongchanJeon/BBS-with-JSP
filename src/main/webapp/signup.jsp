@@ -1,25 +1,25 @@
-<%@ page language="java" contentType="text/html; charset=EUC-KR"
-    pageEncoding="EUC-KR"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="EUC-KR">
+<meta charset="UTF-8">
 <title>Insert title here</title>
 </head>
 <body>
-<h1>х╦ ©Ь ╟║ ют</h1>
+<h1>М ▄ Л⌡░ Й╟─ Л·┘</h1>
 <hr><br>
-<h3>х╦©Ь╟║ют ╫ц╫╨еш</h3>
+<h3>М ▄Л⌡░Й╟─Л·┘ Л▀°Л┼╓М┘°</h3>
 <br>
 <form method = "post" action="./user_dao.jsp">
-	<div>юл╦╖ю╩ ют╥бго╪╪©Д : <input type = "text" name = "userName"></div>
-	<div>╬фюл╣П╦╕ ют╥бго╪╪©Д : <input type = "text" name = "userId"></div>
-	<div>╨Я╧п╧Ьхё╦╕ ют╥бго╪╪©Д : <input type = "text" name = "userPassword"></div>
-	<div>юл╦чюою╩ ют╥бго╪╪©Д : <input type = "text" name = "userEmail"></div>
-	<div>юЭх╜╧Ьхёю╩ ют╥бго╪╪©Д : <input type = "text" name = "userPhone"></div>
-	<div>аж╧н╣Н╥о╧Ьхёю╩ ют╥бго╪╪©Д : <input type = "text" name = "userSSN"></div>
-	<input type ="hidden" name = "actionType" value="SIGNUP">
-	<button type = "button" onclick = "location.href = 'main.jsp'"> х╦©Ь╟║ют</button>
+	<div>Л²╢К╕└Л²└ Л·┘К═╔М∙≤Л└╦Л ■ : <input type = "text" name = "userName"></div>
+	<div>Л∙└Л²╢К■■К╔╪ Л·┘К═╔М∙≤Л└╦Л ■ : <input type = "text" name = "userId"></div>
+	<div>К╧└К╟─К╡┬М≤╦К╔╪ Л·┘К═╔М∙≤Л└╦Л ■ : <input type = "password" name = "userPassword"></div>
+	<div>Л²╢К╘■Л²╪Л²└ Л·┘К═╔М∙≤Л└╦Л ■ : <input type = "email" name = "userEmail"></div>
+	<div>Л═└М≥■К╡┬М≤╦Л²└ Л·┘К═╔М∙≤Л└╦Л ■ : <input type = "text" name = "userPhone"></div>
+	<div>Лё╪К╞╪К⌠╠К║²К╡┬М≤╦Л²└ Л·┘К═╔М∙≤Л└╦Л ■ : <input type = "text" name = "userSSN"></div>
+	<input type ="hidden" name = "actionType" value="S">
+	<input type = "submit" value ="М ▄Л⌡░Й╟─Л·┘">
 </form>
 
 </body>
