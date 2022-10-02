@@ -16,8 +16,8 @@
 	<div>아이디를 입력하세요 : <input type = "text" name = "userId"></div>
 	<div>비밀번호를 입력하세요 : <input type = "password" name = "userPassword"></div>
 	<div>이메일을 입력하세요 : <input type = "email" name = "userEmail"></div>
-	<div>전화번호을 입력하세요 : <input type = "text" name = "userPhone"></div>
-	<div>주민등록번호을 입력하세요 : <input type = "text" name = "userSSN"></div>
+	<div>전화번호을 입력하세요 : <input type = "number" name = "userPhone"></div>
+	<div>주민등록번호을 입력하세요 : <input type = "number" name = "userSSN"></div>
 	<input type ="hidden" name = "actionType" value="S">
 	<input type = "submit" value ="회원가입">
 </form>

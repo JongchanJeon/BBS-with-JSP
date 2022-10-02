@@ -121,7 +121,7 @@
 	%>
 	<a href = "./book_r3.jsp?currentPageNo=<%=(currentPageNo-1)%>&record=<%=record%>">[PRE]</a>
 	<%
-		{
+		
 	%>}else
 		[PRE]
 	<%

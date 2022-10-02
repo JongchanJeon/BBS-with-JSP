@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-    <%@ page import="java.sql.*" %>
+<%@ page import="java.sql.*" %>
+<%@ page import="java.io.PrintWriter" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -65,11 +66,11 @@
 			
 			if(result == 1){
 				System.out.println("레코드 추가 성공");
-				msg += "레코드 삭제 성공";
+				msg += "회원가입 성공";
 			}
 			else {
 				System.out.println("레코드 추가 실패");
-				msg += "레코드 삭제 실패";
+				msg += "회원가입 실패";
 			}
 		}
 		
@@ -97,8 +98,11 @@
 				rs = pstmt.executeQuery();
 				if(rs.next()) {
 					if(rs.getString(1).equals(userPassword)) {
-						System.out.println("checking 1");
-						response.sendRedirect("index.jsp");
+						session.setAttribute("userId", userId);
+						PrintWriter script = response.getWriter();
+						script.println("<script>");
+						script.println("location.href = 'index.jsp'");
+						script.println("</script>");
 					}
 				}
 			}catch (Exception e) {
@@ -109,10 +113,32 @@
 			msg += "아이디 또는 비밀번호를 확인 해 주세요.";
 			
 		}
+		break;
+	case "U":
+		String userID = (String) session.getAttribute("userId");
+		userName = request.getParameter("userName");
+		userPassword = request.getParameter("userPassword");
+		userEmail = request.getParameter("userEmail");
+		userPhone = request.getParameter("userPhone");
+		userSSN = request.getParameter("userSSN");
+		sql = "update users set userName='" + userName + "', userPassword='" + userPassword + "',userEmail='" + userEmail + "',userPhone='" + userPhone +"',userSSN='" + userSSN +"' " ;
+		sql += "where userId ='" + userID + "'";
+		System.out.println(sql);
 		
+		result = stmt.executeUpdate(sql);
+		if(result == 1){
+			System.out.println("레코드 수정 성공");
+			msg += "레코드 수정 성공";
+		}
+		else {
+			System.out.println("레코드 수정 실패");
+			msg += "레코드 수정 실패";
+		}
+		break;
 	}
 	
 %>
+
 
 <h2><%=msg %></h2>
 <br><a href="./main.jsp">로그인하기</a>
