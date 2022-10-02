@@ -35,6 +35,7 @@
 	String userSSN;
 	String msg = "실행결과 : ";
 	String sql;
+	String userID;
 	int result;
 	switch(actionType) {
 	
@@ -74,6 +75,23 @@
 			}
 		}
 		
+		break;
+	case "D":
+		userID = (String) session.getAttribute("userId");
+
+		sql = "delete from users where userId = '";
+		sql += userID + "'";
+		System.out.println(sql);
+		
+		result = stmt.executeUpdate(sql);
+		if(result == 1){
+			System.out.println("회원 탈퇴 성공");
+			msg += "회원탈퇴 성공";
+		}
+		else {
+			System.out.println("회원 탈퇴 실패");
+			msg += "회원탈퇴 실패";
+		}
 		break;
 	case "I":
 		PreparedStatement pstmt; // 쿼리문 대기 및 설정
@@ -115,7 +133,7 @@
 		}
 		break;
 	case "U":
-		String userID = (String) session.getAttribute("userId");
+		userID = (String) session.getAttribute("userId");
 		userName = request.getParameter("userName");
 		userPassword = request.getParameter("userPassword");
 		userEmail = request.getParameter("userEmail");
@@ -135,6 +153,8 @@
 			msg += "레코드 수정 실패";
 		}
 		break;
+	
+		
 	}
 	
 %>
